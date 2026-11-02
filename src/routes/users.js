@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Joi from "joi";
 
 import { prisma } from "../config/index.js";
 import { validate } from "../middleware/validate.js";

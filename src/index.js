@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { prisma } from "./config/index.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import usersRouter from "./routes/users.js";
+import postsRouter from "./routes/posts.js";
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/users", usersRouter);
+app.use("/api/posts", postsRouter);
 
 app.get("/", (req, res) => {
     res.json({
