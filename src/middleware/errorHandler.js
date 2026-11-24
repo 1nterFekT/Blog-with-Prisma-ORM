@@ -20,7 +20,15 @@ export const errorHandler = (err, req, res, next) => {
         });
     }
 
+    const isProduction = process.env.NODE_ENV === "production";
+
     res.status(500).json({
-        error: "Internal servcer error",
+        error: "Internal server error",
+        ...err(
+            !isProduction && {
+                details: err.message,
+                stack: err.stack,
+            },
+        ),
     });
 };

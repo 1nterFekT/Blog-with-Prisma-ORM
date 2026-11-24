@@ -10,19 +10,25 @@ npm i
 
 2. Создать файл `.env` на основе `.env.example`
 
-3. Применить миграции:
+3. Для создания секретов можно использовать:
+
+```
+node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
+```
+
+4. Применить миграции:
 
 ```
 npx prisma migrate deploy
 ```
 
-4. Сгенерировать Prisma Client:
+5. Сгенерировать Prisma Client:
 
 ```
 npx prisma generate
 ```
 
-5. Запустить сервер:
+6. Запустить сервер:
 
 ```
 npm run dev

@@ -2,10 +2,11 @@
     "name": "apiwithdb",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/server.js",
     "scripts": {
-        "dev": "nodemon src/index.js",
-        "start": "node src.inedx.js"
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js",
+        "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand"
     },
     "keywords": [],
     "author": "",
