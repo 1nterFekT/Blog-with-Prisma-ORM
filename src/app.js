@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
 import { errorHandler } from "./middleware/errorHandler.js";
+import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import postsRouter from "./routes/posts.js";
 
@@ -12,6 +13,8 @@ app.use(helmet());
 
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
+
+app.use("/auth", authRouter);
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
