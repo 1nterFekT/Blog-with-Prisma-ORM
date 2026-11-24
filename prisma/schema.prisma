@@ -11,9 +11,11 @@ model User {
     id Int @id @default(autoincrement())
     email String @unique
     name String
+    passwordHash String
     role String @default("USER")
     createdAt DateTime @default(now())
     posts Post[]
+    refreshTokens RefreshToken[]
 }
 
 model Post {
@@ -31,4 +33,14 @@ model Tag {
     id Int @id @default(autoincrement())
     name String @unique
     posts Post[]
+}
+
+model RefreshToken {
+    id Int @id @default(autoincrement())
+    tokenHash String @unique
+    userId Int
+    expiresAt DateTime
+    revokedAt DateTime?
+    createdAt DateTime @default(now())
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
